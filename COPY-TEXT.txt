@@ -40,13 +40,20 @@ ALTER SEQUENCE public.bookcover_id_seq OWNED BY public.bookcover.id;
 ALTER TABLE ONLY public.bookcover
     ALTER COLUMN id SET DEFAULT nextval('public.bookcover_id_seq'::regclass);
 
--- Insert data into 'bookcover' table
+
+    
+
+-- IF YOU WANT SOME EXAMPLE BOOK REVIEW (OPTIONAL) -------------------------------------------------
 INSERT INTO public.bookcover (id, title, isbn, oclc, lccn, size, notes_id) VALUES
 (2, 'The Female Brain by Louanne Weston, PhD', 9781407039510, NULL, NULL, 'M', 2),
 (3, 'Atomic Habits by James Clear', 1847941834, NULL, NULL, 'M', 3),
 (4, 'Outliers by Malcom Gladwell', NULL, 225870354, NULL, 'M', 4),
 (5, 'Indistractable by Nir Eyal and Juile Li', 9781526610201, NULL, NULL, 'M', 5),
 (6, 'Permission to screw up by Kristian Hadeed', 9781591848295, NULL, NULL, 'M', 6);
+-----------------------------------------------------------------------------------------------------
+
+
+
 
 -- Create table 'notes'
 CREATE TABLE IF NOT EXISTS public.notes (
@@ -80,7 +87,10 @@ ALTER SEQUENCE public.notes_id_seq OWNED BY public.notes.id;
 ALTER TABLE ONLY public.notes
     ALTER COLUMN id SET DEFAULT nextval('public.notes_id_seq'::regclass);
 
--- Insert data into 'notes' table
+
+
+
+-- IF YOU DECIDED TO KEEP THE EXAMPLE BOOK REVIEW (OPTIONAL) -------------------------------------------------
 INSERT INTO public.notes (id, title, date, rating, summary, review) VALUES
 (2, 'The Female Brain by Louanne Weston, PhD', '2023-02-02', 5.0, 'Must-read book for both genders!', 'Would re-listen or at least really study some of the concepts, for example the menstrual cycle. Even though I learnt an awful lot from the book, I would re-listen to really digest the concepts and the information provided. I was actually mad when I finished the book, of the fact that this had never been taught to us in school. Also, would love to start expanding my knowledge in this field. In addition, on an aspect spoken about in the book, of male and female interactions. Especially in relationships, would be interesting to find out. The book overall talks about how the female brain affects your perspective, morals and interests through every phase in your life. This information is very useful, as it greatly influences your daily reality!!'),
 
@@ -91,6 +101,10 @@ INSERT INTO public.notes (id, title, date, rating, summary, review) VALUES
 (5, 'Indistractable by Nir Eyal and Juile Li', '2023-05-09', 5.0, 'Very insightful!', 'I really enjoyed this book started it only a couple days ago, and was easily able to follow along what was being discussed. A real eye opener for me, which I really loved. The fact that it isn''t new to humans to be distracted and it isn''t the fault of technology, it is just what we are currently using to occupy our attention to get rid of the internal feeling of discomfort. Some great strategies for the workplace and personal lives or work from home for how to set up indistractable work time. Also talks about child raising and the best strategies and practices to put in place to best balance our lives in this new digital age. He claimed that distraction stems from discomfort and that dealing with discomfort is dealing with pain. Inevitably meaning that distraction is pain management, mind-blowing, though unfortunately he did not dive into this deeper. There was also a chapter where he went through common misconceptions about technology and especially youth, that its not new that people are distracted by something, it was the same thing with the radio, newspapers etc. Him explaining how this is human behaviors and run by internal triggers, that are just being presented in society differently because of the digital age, got me really interested into further diving deeper on the internal factors, that make us reach for our phones. That society have always been scared of the new tech, and have a bias towards it. Great book, for finding the apps and stuff he used I would re-listen to the clips, as well as further read upon human psychology of distraction.'),
 
 (6, 'Permission to screw up by Kristian Hadeed', '2023-05-23', 4.5, 'Great book, lovely to listen to the stories. Not at all boring', 'She takes you on a journey of her hardships in building StudentMade from the ground up. The importance of your employees, company culture, etc. A journey on Leadership, improving and improving through advice and trial and error. How to motivate people to do work for you, that they may not necessarily want to do. The importance of an experience like StudentMade on young people. Making your own decisions and giving space to allow other people to make mistakes and come to their own conclusions. How important it is to feel good at work, for colleagues to interact and to have retreats for work to bond. To not have rigid rules and to have guidelines. Stuff like that! Great great book enjoyed it! Easily got to the end :)');
+------------------------------------------------ -------------------------------------------------
+
+
+
 
 -- Set sequence value for 'bookcover_id_seq'
 SELECT pg_catalog.setval('public.bookcover_id_seq', 6, true);

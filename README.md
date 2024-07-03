@@ -20,8 +20,8 @@ Une application personnelle de critique de livres où les utilisateurs peuvent a
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/book-review-app.git 
-    cd book-review-app
+    git clone https://github.com/EllaMarja/4-Book-notes 
+    cd 4-Book-notes
     ```
 
 2. **Install dependencies:**
@@ -33,25 +33,42 @@ Une application personnelle de critique de livres où les utilisateurs peuvent a
     Ensure you have PostgreSQL installed on your machine. You can download it from [PostgreSQL](https://www.postgresql.org/download/).
 
 4. **Create the database:**
+    Default 'postgres' is used in next step, so to make life easier, keep it and change it later.
+    
     ```bash
-    createdb book_review_db
+    CREATE DATABASE postgres;
     ```
 
 5. **Run database migrations:**
 
-    COPY & PASTE ALL of the text file COPY-ME.txt into your postgresql
+To set up the database:
 
-    then run the code
+1. Copy and paste all contents from the text file COPY-ME.txt into your PostgreSQL.
 
-    IF not using default settings:
-    Dont change the code UNLESS you are adding the tables to the db that isnt named postgres and into your Schemas that isnt named public
-    **--**
-    COPIEZ ET COLLEZ TOUT le contenu du fichier texte COPY-ME.txt dans votre PostgreSQL
+- Example book reviews are included; omit the insert into code if not needed.
 
-    puis exécutez le code
+2. Run the code.
 
-    **SI vous n'utilisez pas les paramètres par défaut :
-    Ne modifiez pas le code SAUF si vous ajoutez les tables à la database qui n'est pas nommée 'postgres' et dans vos schémas qui ne sont pas nommés 'public'
+If not using default settings:
+
+- Do not modify the code UNLESS you are adding tables to a database that isn't named 'postgres' or to schemas other than 'public'.
+
+
+**-------------**
+En français :
+
+Pour configurer la base de données :
+
+1. Copiez et collez tout le contenu du fichier texte COPY-ME.txt dans votre PostgreSQL.
+
+- Des exemples de critiques de livres sont inclus ; ignorez le code insert into si vous ne souhaitez pas les inclure.
+
+2. Exécutez le code.
+
+Si vous n'utilisez pas les paramètres par défaut :
+
+- Ne modifiez pas le code SAUF si vous ajoutez des tables à une base de données qui ne s'appelle pas 'postgres' ou à des schémas autres que 'public'.
+
     
 
 6. **Create an `.env` file:**
