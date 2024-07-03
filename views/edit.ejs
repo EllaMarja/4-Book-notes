@@ -1,0 +1,56 @@
+<%- include('partials/header.ejs') %> 
+
+
+<div class="base-layout">
+    <form action="/update" method="POST" >
+        
+        <h1>Need to make any adjustments?</h1>
+        <% if (locals.error) { %>
+            <h2><%= problem %></h2>
+        <% } else { %>
+        
+        <div class="bookTitleDiv">
+            <label for="title">Book title & Author:</label>
+            <input class="input dark-input mb-600" type="text" id="title" name="bookTitle" value="<%= book.title %>"/>
+            <small></small>
+        </div>
+        <div>
+            <label for="rating">Rating (0-5.0):</label>
+            <input class="input dark-input mb-600" type="text" id="rating" name="bookRating" value="<%= book.rating %>"/>
+            <small></small>
+        </div>
+        <div>
+            <label for="review">Review:</label>
+            <textarea class="input dark-input mb-600" id="review" name="bookReview"><%=  book.review  %></textarea>
+            <small></small>
+        <div>
+            <label for="summary">Your summarized experience:</label>
+            <textarea class="input dark-input mb-600" id="summary" name="bookSummary"><%=  book.summary  %></textarea>
+            <small></small>
+        </div>
+        <div>
+            <label for="date">Date of completion:</label>
+            <input class="input dark-input mb-600" type="text" id="date" name="bookDate" value="<%= book.date %>"/>
+            <small></small>
+        </div>
+        <div>
+            <input type="hidden" value="<%= bookId %>" name="bookId">
+            <button type="submit" class="button " id="update-btn">Update</button>
+        </div>
+        <div>
+            
+        
+        
+    </form>
+
+</div>      
+    <form action="/delete" method="POST">
+        <input type="hidden" name="notes_id" value="<%= bookId %>">
+        <button id="delete-btn" type="submit" class="button">Delete</button>
+    </form>
+</div>
+    <% } %>
+</div>
+
+
+<%- include('partials/footer.ejs') %> 

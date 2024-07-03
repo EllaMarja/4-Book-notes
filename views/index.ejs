@@ -1,0 +1,84 @@
+<%- include('partials/header.ejs') %> 
+
+<%- include('hero-section.html') %>
+
+<% if (locals.error) { %>
+
+
+<div  style="display: flex;flex-direction: column;align-items: center;">
+    <h2 class="error-message">*<%= problem %>*</h2>
+    <button class="button option-buttons dark-button poppins-bold" id="Home-button" role="button" href="/"">
+        <a href="/">Back to Home page</a>
+    </button>
+    <iframe src="https://giphy.com/embed/CoND5j6Bn1QZUgm1xX" width="480" height="480" style="padding: 5%;padding-top: 0;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    
+    <% } else { %>
+
+<div class="all-books">
+    <% books.forEach((book)=> { %>
+        <div class="grid-container">
+            
+
+            <div class="bookcover-container">
+                <img src="<%= book.isbn || book.oclc || book.lccn ? 'https://covers.openlibrary.org/b/' + (book.isbn ? 'isbn' : book.oclc ? 'oclc' : 'lccn') + '/' + (book.isbn || book.oclc || book.lccn) + '-' + book.size + '.jpg' : 'fallback_image.avif' %>" class="bookCover" alt="book cover">
+            </div>
+
+            <div class="header">
+                <h2> <%= book.title %></h2>
+            </div>
+
+            <div class="secondary-header">
+                <p> Date of review: <%= book.date %></p>
+                <h3> Rating: <%= book.rating %>/5</h3>
+
+                <% let rating; %>
+                <% if (book.rating % 1 === 0 || book.rating % 1 === 0.5) { %>
+                    <% rating = book.rating; %>
+                <% } else { %>
+                    <% let multipied = book.rating * 2; %>
+                    <% let rounded = Math.round(multipied); %>
+                    <% rating = rounded / 2; %>
+                    <% } %>
+                <img src="/Stars/Dark/<%= rating %>-stars.jpg" class="stars darkStars hidden" alt="golden stars" id="darkStars">
+                <img src="/Stars/Light/<%= rating %>-stars.jpg" class="stars lightStars " alt="golden stars" id="lightStars">
+            </div>
+
+            <div class="complimentary-header">
+                <h4><%= book.summary %></h4>
+            </div>
+            
+            <div class="review-container">
+                <h5> <%= book.review %></h5>
+            </div>
+            
+        </div>
+        <div class="options-flexbox">
+            <div id="edit-flex">
+                <label class="edit-label" for="editButton">EDIT</label>
+            <form id="editForm" action="/edit" method="get">
+                <input type="hidden" name="bookId" value="<%= book.id %>">
+                <button type="submit" id="edit-btn-hidden">
+                    <img src="/edit-icon.png" class="edit-icon" id="editButton" alt="edit button">
+                </button>
+                
+            </form>
+            </div>
+       
+        
+        
+
+            <form action="/library" method="get" id="libraryForm">
+                <input type="hidden" name="bookTitle" value="<%= book.title %>">
+                <input type="hidden" name="bookId" value="<%= book.id %>">
+                <input type="submit" class="button dark-book-worm-button" id="book-worm-btn" value="Book worm info">
+            </form>
+       </div>
+    <%  }) }; %>
+</div>
+
+</div>
+
+
+
+
+<%- include('partials/footer.ejs') %> 

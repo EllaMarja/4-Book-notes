@@ -1,0 +1,103 @@
+
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+--INSTRUCTIONS ON README FILE
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+
+-- Create table 'bookcover'
+CREATE TABLE IF NOT EXISTS public.bookcover (
+    id integer NOT NULL,
+    title character varying(150) NOT NULL,
+    isbn bigint,
+    oclc bigint,
+    lccn bigint,
+    size character varying(1),
+    notes_id integer
+);
+
+-- Set ownership of 'bookcover' table
+ALTER TABLE public.bookcover OWNER TO postgres;
+
+-- Create sequence for 'bookcover' table
+CREATE SEQUENCE IF NOT EXISTS public.bookcover_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Set ownership of sequence 'bookcover_id_seq'
+ALTER SEQUENCE public.bookcover_id_seq OWNER TO postgres;
+
+-- Set sequence ownership to 'bookcover' table
+ALTER SEQUENCE public.bookcover_id_seq OWNED BY public.bookcover.id;
+
+-- Set default value for 'id' column in 'bookcover' table
+ALTER TABLE ONLY public.bookcover
+    ALTER COLUMN id SET DEFAULT nextval('public.bookcover_id_seq'::regclass);
+
+-- Insert data into 'bookcover' table
+INSERT INTO public.bookcover (id, title, isbn, oclc, lccn, size, notes_id) VALUES
+(2, 'The Female Brain by Louanne Weston, PhD', 9781407039510, NULL, NULL, 'M', 2),
+(3, 'Atomic Habits by James Clear', 1847941834, NULL, NULL, 'M', 3),
+(4, 'Outliers by Malcom Gladwell', NULL, 225870354, NULL, 'M', 4),
+(5, 'Indistractable by Nir Eyal and Juile Li', 9781526610201, NULL, NULL, 'M', 5),
+(6, 'Permission to screw up by Kristian Hadeed', 9781591848295, NULL, NULL, 'M', 6);
+
+-- Create table 'notes'
+CREATE TABLE IF NOT EXISTS public.notes (
+    id integer NOT NULL,
+    title character varying(150) NOT NULL,
+    date date,
+    rating numeric(2,1),
+    summary character varying(350),
+    review text
+);
+
+-- Set ownership of 'notes' table
+ALTER TABLE public.notes OWNER TO postgres;
+
+-- Create sequence for 'notes' table
+CREATE SEQUENCE IF NOT EXISTS public.notes_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Set ownership of sequence 'notes_id_seq'
+ALTER SEQUENCE public.notes_id_seq OWNER TO postgres;
+
+-- Set sequence ownership to 'notes' table
+ALTER SEQUENCE public.notes_id_seq OWNED BY public.notes.id;
+
+-- Set default value for 'id' column in 'notes' table
+ALTER TABLE ONLY public.notes
+    ALTER COLUMN id SET DEFAULT nextval('public.notes_id_seq'::regclass);
+
+-- Insert data into 'notes' table
+INSERT INTO public.notes (id, title, date, rating, summary, review) VALUES
+(2, 'The Female Brain by Louanne Weston, PhD', '2023-02-02', 5.0, 'Must-read book for both genders!', 'Would re-listen or at least really study some of the concepts, for example the menstrual cycle. Even though I learnt an awful lot from the book, I would re-listen to really digest the concepts and the information provided. I was actually mad when I finished the book, of the fact that this had never been taught to us in school. Also, would love to start expanding my knowledge in this field. In addition, on an aspect spoken about in the book, of male and female interactions. Especially in relationships, would be interesting to find out. The book overall talks about how the female brain affects your perspective, morals and interests through every phase in your life. This information is very useful, as it greatly influences your daily reality!!'),
+
+(3, 'Atomic Habits by James Clear', '2023-03-22', 5.0, 'Liquid gold info!', 'I found out about this book over a year ago, people seemed to really like it. It was around the time I was listening to a couple audiobooks. However, I wanted to specifically get the physical book for the diagrams and stuff, so I thought I will wait. Then one year ago, I decided to go to London for a quick vacation, to meet Daddy and Noah as well as Aisling in the process. There in a Waterstones, in central, I was indeed delighted to finally see all the bestsellers I had heard of on the store shelves. Started reading it a year ago around the time I met Alex, he mentioned he was not keen on the book. This then greatly motivated me to start reading it lol. Found out I loved the book, which I was then very excited to tell him at the following cafe des langues meeting. Our conversations just improved from there hehehe. From the start I started reading this book with an army of highlighters next to me. This unfortunately often held me back from picking up the book, as I knew I should have my highlighters and be taking notes which was just enough resistance to often discourage me. Rereading all my highlights I realize how very beneficial it is, and how happy I am that I carried it out on this extraordinary book. Often I want a book that will just teach me everything teach me all the wisdoms of life, tell me what I need to do (like with my new thing with private schools). In fact, this book does it all, I believe in the past year it has helped guide me and prepare me for my journey ahead. That I have also been able to absorb and apply its concepts without thinking, or remembering where I had learnt it from. This is a book to study, to keep on re-reading when you have a question about a habit. It truly was an incredible find, much more valuable than the £16.99. The very end of the book also had great liquid gold information about aspects of habits we often do not talk about like, boredom, reviewing, mastery, strengths and genes.'),
+
+(4, 'Outliers by Malcom Gladwell', '2015-05-08', 5.0, 'Opened my eyes!', 'Great book, learnt a lot from the importance of your birthday, to problems with geniuses, difference between different social classes and the school systems. Why do some people get very successfully, opened my eyes to many explanations I did not know of. Also learnt about aviation and multiple crashes during the last century. All in all the importance of opportunities and really making the very most out of it. The book has given me much more insight into how higher social classes raise their children, focusing a lot on reading and learning. Although I disagreed with increasing school day hours and getting rid of the summer holidays. I believe this book did a lot of good for me. It also answered a assumption I had possessed for many years, that I was indeed at a great disadvantage being born in late august, regarding the school system.'),
+
+(5, 'Indistractable by Nir Eyal and Juile Li', '2023-05-09', 5.0, 'Very insightful!', 'I really enjoyed this book started it only a couple days ago, and was easily able to follow along what was being discussed. A real eye opener for me, which I really loved. The fact that it isn''t new to humans to be distracted and it isn''t the fault of technology, it is just what we are currently using to occupy our attention to get rid of the internal feeling of discomfort. Some great strategies for the workplace and personal lives or work from home for how to set up indistractable work time. Also talks about child raising and the best strategies and practices to put in place to best balance our lives in this new digital age. He claimed that distraction stems from discomfort and that dealing with discomfort is dealing with pain. Inevitably meaning that distraction is pain management, mind-blowing, though unfortunately he did not dive into this deeper. There was also a chapter where he went through common misconceptions about technology and especially youth, that its not new that people are distracted by something, it was the same thing with the radio, newspapers etc. Him explaining how this is human behaviors and run by internal triggers, that are just being presented in society differently because of the digital age, got me really interested into further diving deeper on the internal factors, that make us reach for our phones. That society have always been scared of the new tech, and have a bias towards it. Great book, for finding the apps and stuff he used I would re-listen to the clips, as well as further read upon human psychology of distraction.'),
+
+(6, 'Permission to screw up by Kristian Hadeed', '2023-05-23', 4.5, 'Great book, lovely to listen to the stories. Not at all boring', 'She takes you on a journey of her hardships in building StudentMade from the ground up. The importance of your employees, company culture, etc. A journey on Leadership, improving and improving through advice and trial and error. How to motivate people to do work for you, that they may not necessarily want to do. The importance of an experience like StudentMade on young people. Making your own decisions and giving space to allow other people to make mistakes and come to their own conclusions. How important it is to feel good at work, for colleagues to interact and to have retreats for work to bond. To not have rigid rules and to have guidelines. Stuff like that! Great great book enjoyed it! Easily got to the end :)');
+
+-- Set sequence value for 'bookcover_id_seq'
+SELECT pg_catalog.setval('public.bookcover_id_seq', 6, true);
+
+-- Set sequence value for 'notes_id_seq'
+SELECT pg_catalog.setval('public.notes_id_seq', 6, true);
+
+-- Add primary key constraint to 'bookcover' table
+ALTER TABLE ONLY public.bookcover
+    ADD CONSTRAINT bookcover_pkey PRIMARY KEY (id);

@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs') %> 
+
+
+<div class="base-layout">
+    <form action="/new" method="post" >
+        <h1 >Make a new book review</h1>
+        <h4 id="subTitle-newPage">What were your thoughts on the book?</h4>
+        <div>
+            <%#<label for="title" type="hidden">Book title & Author:</label>  %>
+            <input class="input dark-input mb-600" type="text" id="title" name="bookTitle" placeholder="The Book's Official Title"/>
+            <small></small>
+        </div>
+        <div>
+            <%# <label for="date" type="hidden">Date of completion:</label> %>
+            <input class="input dark-input mb-600" type="text" id="date" name="bookDate" placeholder="YYYY-MM-DD"/>
+            <small></small>
+        </div>
+        <div>
+            <%# <label for="rating" type="hidden">Rating:</label> %>
+            <input class="input dark-input mb-600" type="text" id="rating" name="bookRating" placeholder="Score out of 5.0"/>
+            <small></small>
+        </div>
+        <div>
+            <textarea class="input dark-input mb-600" id="summary" name="bookSummary" placeholder="Short Sentence Or Two ..."></textarea>
+            <small></small>
+        </div>
+        <div>
+            <textarea class="input dark-input mb-600" id="review" name="bookReview" placeholder="Your Full Review..."></textarea>
+            <small></small>
+        </div>
+            <button class="button" id="publish-btn" type="submit">Publish</button>
+        </div>
+        </div>
+    </form>
+
+</div>
+
+
+<%- include('partials/footer.ejs') %> 

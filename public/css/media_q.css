@@ -1,0 +1,294 @@
+/* MEDIA QUERIES  IPAD (max-width: 900px) */
+@media (min-width: 600px) and (max-width: 900px){
+    /*Layout main ipad*/
+    body{
+        padding: 12px;
+    }
+    main{
+        width: min(65ch, 100% - 4rem);
+        margin-inline: auto;
+    }
+    /*Top header nav ipad*/
+    #stickyHeader{
+        justify-content: space-evenly;
+        padding: 1% 0px;   
+}
+    nav{
+        gap:7px;
+        padding: 0;
+    }
+    h1{
+       font-size: 33px;
+       line-height: 39px;
+    }
+    #stickyHeader > button{
+        width: 220px;
+    }
+
+    /*About me intro ipad*/
+    .about-Me > h2{
+        font-size: 29px;
+    }
+    .about-Me > h3 {
+        font-size: 21px;
+    }
+    .about-Me> h4{
+        font-size: 19px;
+    }
+    #filter{
+        font-size: 22px;
+        width:200px;
+    }
+    #filter-button{
+        font-size: 20px;
+    }
+    #scroll{
+        font-size: 19px;
+    }
+
+
+    /*Ipad grid*/
+    h2{
+        font-size: 25px ;
+    }
+    h3{
+        font-size: 21px;
+    }
+    h4{
+        font-size: 17px;
+    }
+    h5{
+        font-size: 16px;
+    }
+
+    /*FOOTER IPAD*/
+    #logo-art{
+        display: none;
+    }
+    .footer-columns{
+        position: static;
+    }
+    footer{
+        font-size: 16px;
+        padding-bottom: 120px;
+    }
+    .footer-column{
+        width: 220px;
+    }
+}
+
+/* IPHONE MOBILE ANDROID MEDIA QUery*/
+@media (min-width:320px) and (max-width: 600px){
+    /*Layout main mobile iphone*/
+    body {
+        margin: 0; /* This centers the body horizontally */
+        width: 100vh; /* You can adjust the width as needed */
+        font-size: larger;
+        overflow-x :hidden;
+    
+    }
+    
+    main{
+        margin-top: 40%;
+        display: flex; /* Use flexbox for centering other elements */
+        flex-direction: column; /* Adjust as needed */
+        align-items: center; /* Adjust as needed */
+        justify-content: center; /* Adjust as needed */
+        width: 100%;
+        margin-inline: auto;
+    }
+    
+    /*Top header nav iphone mobile*/
+    #stickyHeader{
+        position: fixed;
+        top: 0;
+        width: 100%; 
+        justify-content: space-evenly;
+    }
+    .spaceUnderHeader {
+        margin-top: 150px;
+    }
+    nav{
+        display: none;
+    }
+    #mobile-nav{
+        display: block;
+        font-size: 25px;
+    }
+    #logo{
+        max-width: 190px;
+        font-size: 30px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    #book-png{
+        max-width: 50px;
+        min-width: 35px;
+    }
+
+
+    /*About me intro  iphone mobile*/
+
+    .form-flexbox{
+        width: 100%;
+    }
+    .form-flexbox > form {
+        width: 100%;
+    }
+    #filter{
+        width:100%;
+    }
+    #filter-button{
+        margin-top: 2%;
+        width: 100%;
+    }
+    #scroll{
+        font-size: 19px;
+    }
+    .about-Me > .options-flexbox{
+        align-items: stretch;
+        gap: 10px;
+    }
+    .about-Me > h3 {
+        font-size: 25px;
+    }
+
+
+    /* iphone mobile grid*/
+    .grid-container{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        grid-gap: 0;
+        gap: 10px;
+        align-items: stretch;
+    }
+    .bookcover-container{
+        align-self: center;
+    }
+    .bookCover{
+        height: 350px;
+    }
+    .header{
+        margin-top: 4%;
+    }
+    h3{
+        font-size: 21px;
+    }
+    h4{
+        font-size: 20px;
+        text-align: justify;
+    }
+    h5{
+        font-size: 16px;
+    }
+
+    /*FOOTER  iphone mobile*/
+    #logo-art {
+        display: none; /* Hide the logo in mobile view */
+    }
+
+    .footer-columns {
+        height: 56vh;
+        position: relative; /* Remove the static positioning */
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Align columns at the center horizontally */
+        padding: 0 20px; /* Add padding on the left and right sides */
+        box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    }
+
+    footer {
+        font-size: 16px; /* Increase font size for better readability */
+        line-height: 1.6; 
+        bottom: 300px;/* Increase line height for better readability */
+    }
+
+    .footer-column {
+        max-width: 425px; /* Make columns full width on mobile */
+        padding: 15px 25px; /* Adjust padding for better spacing */
+        text-align: center; /* Center align text */
+    }
+
+    .footer-column > h3 {
+        font-weight: 800; /* Keep the font weight for heading */
+    }
+
+    .footer-container {
+        position: relative; /* Keep the relative positioning */
+        border-radius: 133px 88px 0px 0px; /* Adjust border radius */
+    }
+
+
+
+
+    /*Base layout on sub pages*/
+    .base-layout{
+        margin-top: 33%;
+    }
+    .bold-text{
+        font-weight: 600;
+    }
+    .input {
+        margin-bottom: 10%;
+    }
+
+
+    /* NEW AND EDIT.ejs adjusted for mobile*/
+    main{
+        flex-direction: column; /* Adjust for mobile layout */
+        align-items: stretch; /* Adjust for mobile layout */
+    }
+    
+    .base-layout{
+        margin: 800px 12px 100px 12px;
+    }
+    .base-layout:has(#update-btn-adv){
+        margin: 300px 12px 100px 12px;
+    }
+    form{
+        font-size: larger;
+    }
+    #summary{
+        height: 80px;
+    }
+    .bookTitleDiv{
+        margin-top: 6%;
+    }
+
+    .input{
+        box-sizing: border-box;
+        min-height: 49px;
+    }
+    #publish-btn{
+        box-sizing: border-box;
+    width: 100%;
+    }
+    #update-btn{
+        box-sizing: border-box;
+    width: 100%;
+    }
+    #update-btn-adv{
+        box-sizing: border-box;
+    width: 100%;
+    }
+    #delete-btn{
+        box-sizing: border-box;
+    width: 100%;
+    }
+
+    /* MARGIN BODY HTML GETTING RID OF SIDE SPACE*/
+    html,body,main{
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+    body:has(.grid-container){
+        height:auto;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+}
+

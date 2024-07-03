@@ -1,0 +1,711 @@
+/* MAIN LAYOUT ======================================================================================================================*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: min(65ch, 100% - 4rem);
+    margin-inline: auto;
+}
+
+
+/* HERO SECTION ================================================================================================*/
+
+#hero-title{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    background: linear-gradient(#e66465, #9198e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Make text fill transparent to show gradient */
+    
+}
+
+
+
+
+/* little message ***====================================================================================================================== */
+#hero-editors-note{
+
+    font-family: 'Klee One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: -0.03em;
+    margin-top: -5vh;
+    padding-top: 0;
+
+    color: #393939;
+
+}
+
+
+
+/*sub text======================================================================================================================*/
+#hero-text{
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    /* or 29px */
+    letter-spacing: -0.03em;
+
+    color: #000000; 
+}
+
+
+
+
+
+
+
+
+
+
+/* TEXT FONTS, COLORS & WEIGHTS ======================================================================================================================*/
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+body {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+    font-optical-sizing: auto;
+    text-align: left;
+
+    background-color: #F3F3F3;
+    color: #160C28;
+}
+
+h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #160C28;
+    padding: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+} 
+
+h4{
+    font-size: 21px;
+    font-weight: 600;
+}
+
+h5 {
+    text-align: justify;
+    margin-top: 2%;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+
+
+
+/* Dark Mode Styles ======================================================================================================================*/
+       
+body.dark-mode {
+    background-color: #636363;
+    color: #e3c89d;
+}
+
+
+
+
+
+
+/* FLEX BOX FOR ALL REVIEWS ======================================================================================================================*/
+.all-books {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*GRID / LAYOUT FOR ALL BOOKS======================================================================================================================*/
+.grid-container {
+    display: grid;
+
+    grid-template-columns: minmax(200px, 2fr) 1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 100px 80px minmax(200px, 2fr);
+    grid-gap: 1em 3em;
+    justify-items: center;
+    align-items: center;
+    padding: 2%;
+}
+
+#libraryForm {
+    margin-bottom: 13%;
+}
+
+.bookcover-container {
+    grid-area: 1 / 1 / 4 / 2;
+}
+
+.header {
+    grid-area: 1 / 2 / 2 / -1;
+    justify-self: start;
+}
+
+.secondary-header {
+    grid-area: 2 / 2 / 3 / -1;
+    justify-self: start;
+}
+.secondary-header > p{
+    font-size: 14px;
+    padding-bottom: 1.9%;
+}
+
+.complimentary-header {
+    grid-area: 3 / 2 / 4 / -1;
+    justify-self: start;
+}
+
+.review-container {
+    grid-area: 4 / 1 / -1 / -1;
+}
+
+.edit-icon {
+    width: 40px;
+    padding: 0 14px;
+}
+.edit-label {
+    font-size: 15px; /* Adjust font size as needed */
+    color: #100721;
+}
+
+#edit-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+img.stars {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+.bookCover {
+    max-width: 100%;
+    display: block;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+
+
+
+/*  PAGE HEADER NAV ======================================================================================================================*/
+
+#stickyHeader {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.3%;
+    background-color: #F8AD9D;
+    box-shadow: rgba(50, 50, 105, 0.25) 0px 2px 5px 0.1px, rgba(0, 0, 0, 0.1) 0px 1px 1px 0.1px;
+    border-radius: 60px;
+}
+
+#stickyHeader.dark-mode {
+    background-color: #160C28;
+    color: #D4ADCF;
+}
+
+#stickyHeader.dark-mode h1 {
+    color: #e3c89d;
+}
+.spaceUnderHeader {
+    margin-top: 170px;
+}
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.content {
+    padding-top: 60px;
+}
+
+
+#logo{
+    border: 0;
+    background-color: transparent;
+    border-radius: 12px;
+}
+
+#logo:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 0.5px 0.5px 1px;
+}
+
+#logo.dark-logo {
+    background-color: #160C28
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 400;
+    padding: 11px 13px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0) 0.5px 0.5px 1px;
+}
+#mobile-nav{
+    display: none;
+}
+
+nav a{
+    padding: 10px;
+    border-radius: 15px;
+}
+ nav a:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 0.5px 0.5px 1px;
+ }
+
+#book-png{
+    width: 50px;
+}
+
+
+
+
+ /* ABOUT ME INTRO ======================================================================================================================*/
+
+.about-Me > h2{
+    text-decoration: underline;
+    font-size:xx-large;
+}
+.about-Me > h3{
+    text-decoration: underline;
+    font-size: larger;
+}
+
+#scroll{
+    background-color: #f9a691;
+    border: none;
+    color: #fff !important;
+    letter-spacing: 0.9px;
+    font-size: 1.3em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding: 2%;
+}
+#scroll:hover{
+    background-color: #F8AD9D;
+}
+
+#filter-button:hover{
+    background-color: #F8AD9D;
+}
+#filter {
+    border: none;
+    background: #f7cabf;
+    color: #fff;
+    border-radius: 20px;
+    text-shadow: none;
+    font-size: larger;
+    padding: 1%;
+    letter-spacing: 0.9px;
+    font-size: 1.3em;
+}
+#filter:hover {
+    background: #F8AD9D;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px #b9b5b5;
+    text-shadow: none;
+    }
+
+#filter-button{
+    background-color: #f7cabf;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    border: none;
+    text-shadow: none;
+    font-size: 1.1em;
+    padding: 1.5% 2%;
+    letter-spacing: .9px;
+
+}
+
+.form-flexbox{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 2;
+    justify-content: center;
+}
+
+.options-flexbox {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    padding-bottom: 90px;
+}
+
+
+
+
+
+/* ERROR MESSAGE */
+
+.error-message{
+    padding: 5%;
+    font-weight: 700;
+    text-align: center;
+    font: bolder;
+}
+
+#Home-button{
+    background-color: #f9a691;
+    border: none;
+    color: #fff;
+    letter-spacing: 0.9px;
+    font-size: 1.3em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding: 5%;
+    margin: 2%;
+    margin-bottom: 2%;
+    border-radius: 3rem;
+
+}
+#Home-button > a {
+color: #fff;
+}
+#Home-button:hover{
+    background-color: #F8AD9D;
+}
+
+
+
+
+/* BUTTONS BTN */ 
+
+#book-worm-btn{
+    color: #100721;
+    background-color: #d3cfdb5c;
+    font-size: .8rem;
+    letter-spacing: 1px;
+    padding: 3%;
+    margin-top: 11px;
+    margin-left: 14px;
+}
+#publish-btn{
+    background-color: rgb(20, 118, 209);
+    color: white;
+}
+#publish-btn:hover{
+    background-color: rgb(6, 90, 168);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+}
+
+#edit-btn-hidden{
+    border: none;
+    background-color: transparent;
+}
+#edit-btn-hidden:hover{
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+    border-radius: 15px;
+}
+#book-worm-btn:hover{
+    color: whitesmoke;
+    background-color: rgb(163, 151, 196);
+}
+
+#delete-btn{
+    background-color: rgb(226, 62, 62);
+    color: whitesmoke;
+    margin-top: 10%;
+}
+#delete-btn:hover{
+    background-color: rgb(220, 20, 20);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+}
+
+#update-btn {
+    background-color: rgb(20, 118, 209);
+    color: white;
+}
+#update-btn:hover{
+    background-color: rgb(6, 90, 168);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+}
+#update-btn-adv {
+    background-color: rgb(20, 118, 209);
+    color: white;
+    margin-top: 5%;
+}
+#update-btn-adv:hover{
+    background-color: rgb(5, 75, 141);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+}
+
+.dark-button{
+    background-color: #341c5f !important;
+    color: #e3c89d;
+}
+
+.button{
+    background-color: #e3e0e9;
+    border: 0;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #111827;
+    font-family: "Roboto";
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: .75rem 1rem;
+    text-align: center;
+    text-decoration: none #F3F3F3 solid;
+    text-decoration-thickness: auto;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button:hover {
+    background-color: rgb(193, 184, 220);
+  }
+  
+  .button:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  
+  .button:focus-visible {
+    box-shadow: none;
+  }
+
+
+
+
+/* Footer CSS*/
+
+.footer-container{
+    position: absolute;
+    height: 60vh;
+    background-color: #F8AD9D;
+    color: #160C28;
+    border-radius: 80px 190px 0px 0px;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 0;
+    margin: 0;
+}
+.footer-container.dark-mode{
+    background-color: #160C28;
+    color: whitesmoke !important;
+}
+footer{
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    width: 100%;
+    height: 150px; 
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.09rem;
+}
+#logo-art{
+    bottom: 0; 
+    left: 0;
+
+    font-size: 5vw;
+    margin: 0; 
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-image: linear-gradient(to right, #100721, #f6baad);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.footer-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    position: absolute;
+    padding-top: 25px;
+    bottom: 5px;
+    width: 100%; 
+}
+.footer-column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 1 auto;
+    padding: 25px 25px;
+    
+    padding-bottom: 5%;
+}
+.footer-column > h3{
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DAY AND NIGHT SWITCH CSS*/
+
+
+                        /* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    box-shadow: rgba(0, 0, 0, 0.331) 0px 3px 3px 0px;
+    border-radius: 17px;
+}
+
+                    /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #599fda;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #e6d437;
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: #b1a324(60, 64, 67, 0.3) 0px 10px 2px 0px, #dacc51(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+
+input:checked+.slider:before {
+    background-color: #cbd4dc;
+}
+
+input:checked+.slider {
+    background-color: #3d3939;
+    box-shadow: #211f1f(60, 64, 67, 0.3) 0px 10px 2px 0px, #151414(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px rgb(27, 128, 211);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+                    /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+/* FONTS*/
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+

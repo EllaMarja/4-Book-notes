@@ -1,0 +1,47 @@
+<%- include('partials/header.ejs') %> 
+
+
+<div class="base-layout">
+    <form action="/library" method="POST" >
+        
+        <h1>Nerdy details</h1>
+        <% if (locals.error) { %>
+            <h2><%= problem %></h2>
+        <% } else { %>
+        
+        <div class="bookTitleDiv">
+            <label for="title">The Book's Official Title: <span class="bold-text"><%= book.title %></span></label>
+            <input type="hidden" id="title" name="bookTitle" value="<%= book.title %>"/>
+            <small></small>
+        </div>
+        <div>
+            <label for="rating">International Standard Book Number (ISBN):</label>
+            <input type="text" id="isbn" class="input dark-input" name="bookIsbn" value="<%= book.isbn %>"/>
+            <small></small>
+        </div>
+        <div>
+            <label for="review">Online Computer Library Center Number (OCLC):</label>
+            <input type="text" id="oclc" class="input dark-input" name="bookOclc" value="<%= book.oclc %>"/>
+            <small></small>
+        <div>
+            <label for="summary">Library of Congress Control Number (LCCN):</label>
+            <input type="text" id="lccn" class="input dark-input" name="bookLccn" value="<%= book.lccn %>"/>
+            <small></small>
+        </div>
+        <div>
+            <label for="date">Book Cover Size ('S','M','L'):</label>
+            <input type="text" id="size" class="input dark-input" name="bookSize" value="<%= book.size %>"/>
+            <small></small>
+        </div>
+        <div>
+            <input type="hidden" name="notes_id" value="<%= book.notes_id %>">
+            <button type="submit" id="update-btn-adv" class="button">Update</button>
+        </div>
+        </div>
+        <% } %>
+    </form>
+
+</div>
+
+
+<%- include('partials/footer.ejs') %> 
